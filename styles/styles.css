@@ -1,0 +1,279 @@
+/* ========== Fonts ========== */
+
+@font-face {
+  font-family: "Black";
+  src: url(../fonts/ArchivoBlack-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sans";
+  src: url(../fonts/OpenSans-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sans";
+  src: url(../fonts/OpenSans-SemiBold.woff2) format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sans";
+  src: url(../fonts/OpenSans-Bold.woff2) format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ========== Base ========== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Sans", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+}
+
+.header,
+.main,
+.footer {
+  padding-inline: 40px;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+/* Listas */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Enlaces */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Imágenes */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Botones */
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+/* ========== Header ========== */
+  .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 100vh;
+  padding-block: 60px;
+}
+
+.header__profile {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 30px;
+}
+
+.header__title {
+  font-family: "Black", Arial, sans-serif;
+  font-size: 72px;
+  margin: 0;
+}
+
+.header__title span {
+  display: block;
+}
+
+.header__subtitle {
+  color: #FFFFFF80;
+  font-size: 18px;
+}
+
+.header__nav-container {
+  margin-top: 20px;
+}
+
+.header__navbar {
+  display: flex;
+  gap: 30px;
+}
+
+.header__navbar--item a {
+  position: relative;
+  font-weight: 600;
+  padding-bottom: 6px; /* espacio para la línea */
+}
+
+/* La línea */
+.header__navbar--item a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+}
+
+/* La imagen */
+.header__img-wrapper {
+  position: relative;
+  width: 400px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* HALO */
+.header__img-wrapper::before {
+  content: "";
+  position: absolute;
+
+  width: 120%;
+  aspect-ratio: 1;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-65%, -30%);
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(109, 109, 255, 0.9) 0%,
+    rgba(109, 109, 255, 0.5) 40%,
+    rgba(109, 109, 255, 0.2) 60%,
+    transparent 75%
+  );
+
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.header__img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+}
+
+/* ========== Main ========== */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.main__title {
+  font-family: "Black", Arial, sans-serif;
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+
+/* Section 1 */
+
+.main__skills--container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Section 2 */
+
+.card__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background-color: #2A2A2A;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.card__img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+}
+
+.card__title {
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.card__info {
+  margin: 15px 0;
+  flex-grow: 1;
+}
+
+.card__footer {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 20px;
+}
+
+.card__link--demo {
+  color: #6D6DFF;
+}
+/* ========== Footer ========== */
+
+.footer {
+  text-align: center;
+  padding-block: 40px;
+  margin-top: 60px;
+}
+
+.footer__title {
+  margin-top: 20px;
+  font-weight: 700;
+  font-family: "Black", Arial, sans-serif;
+  font-size: 40px;
+}
+
+.footer__email {
+  color: #6D6DFF;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 10px;
+}
+
+/* ========== States ========== */
+
+/* ========== Media queries ========== */
