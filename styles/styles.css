@@ -50,10 +50,12 @@ body {
   color: #FFFFFF;
 }
 
+
+
 .header,
 .main,
 .footer {
-  padding-inline: 40px;
+  padding: 40px;
   max-width: 1200px;
   margin-inline: auto;
 }
@@ -83,8 +85,9 @@ button {
   background: none;
   cursor: pointer;
 }
+
 /* ========== Header ========== */
-  .header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -114,6 +117,10 @@ button {
   font-size: 18px;
 }
 
+.header__info {
+  text-align: justify;
+  padding-right: 20px;
+}
 .header__nav-container {
   margin-top: 20px;
 }
@@ -126,7 +133,7 @@ button {
 .header__navbar--item a {
   position: relative;
   font-weight: 600;
-  padding-bottom: 6px; /* espacio para la línea */
+  padding-bottom: 6px;
 }
 
 /* La línea */
@@ -143,7 +150,7 @@ button {
 /* La imagen */
 .header__img-wrapper {
   position: relative;
-  width: 400px;
+  max-width: 400px;
   flex-shrink: 0;
   display: flex;
   justify-content: center;
@@ -189,6 +196,7 @@ button {
   display: flex;
   flex-direction: column;
   row-gap: 40px;
+  margin-top: 30px;
 }
 
 .main__title {
@@ -197,6 +205,11 @@ button {
   margin-bottom: 40px;
 }
 
+/* Logos (skills) */
+.card__logo--container {
+  display: flex;
+  gap: 15px;
+}
 
 /* Section 1 */
 
@@ -222,10 +235,48 @@ button {
   padding: 20px;
 }
 
+/* CONTENEDOR DE IMAGEN */
+.card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+/* IMAGEN */
 .card__img {
   width: 100%;
-  max-height: 220px;
+  height: 100%;
   object-fit: cover;
+}
+
+/* OVERLAY (VELO) */
+.card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0)
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* LOGOS SOBRE IMAGEN */
+.card__logo--container {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+/* TAMAÑO DE LOGOS */
+.card__logo {
+  width: 24px;
+  height: auto;
 }
 
 .card__title {
@@ -248,16 +299,41 @@ button {
 .card__link--demo {
   color: #6D6DFF;
 }
+
 /* ========== Footer ========== */
 
 .footer {
   text-align: center;
-  padding-block: 40px;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  background-color: transparent;
+  position: relative;
 }
 
+.footer__wrapper::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  aspect-ratio: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+  circle,
+  rgba(109, 109, 255, 0.35) 0%,
+  rgba(109, 109, 255, 0.25) 40%,
+  rgba(109, 109, 255, 0.12) 50%,
+  transparent 75%
+);
+
+  filter: blur(100px);
+  z-index: -1;
+}
+
+
 .footer__title {
-  margin-top: 20px;
   font-weight: 700;
   font-family: "Black", Arial, sans-serif;
   font-size: 40px;
@@ -265,15 +341,15 @@ button {
 
 .footer__email {
   color: #6D6DFF;
+  font-style: normal;
 }
 
 .footer__links {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-top: 10px;
+  gap: 70px;
+  margin-top: 20px;
 }
-
 /* ========== States ========== */
 
 /* ========== Media queries ========== */
